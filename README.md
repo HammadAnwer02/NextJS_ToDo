@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js To-Do Application
 
-## Getting Started
+A full-stack To-Do application built with Next.js, PostgreSQL, Prisma, NextAuth, and TailwindCSS. This application supports user authentication via Google and credentials, allowing authenticated users to create, edit, and delete to-dos. The app is deployed on Vercel and uses a Heroku PostgreSQL database for production.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Database Setup with Heroku](#database-setup-with-heroku)
+- [Project Structure](#project-structure)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **User Authentication:**  
+  - Sign in using Google or credentials (NextAuth).
+  - Secure session management with JWT.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **To-Do Management:**  
+  - Create, edit, and delete to-dos.
+  - Real-time updates without page refresh.
+  - Protected dashboard accessible only to authenticated users.
 
-## Learn More
+- **Responsive Design:**  
+  - Styled with TailwindCSS for mobile, tablet, and desktop views.
 
-To learn more about Next.js, take a look at the following resources:
+- **Database Integration:**  
+  - Uses PostgreSQL managed via Prisma ORM.
+  - Migrations and schema management handled with Prisma.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Deployment:**  
+  - Deployed on Vercel.
+  - Production database hosted on Heroku Postgres.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- **Frontend:** Next.js (App Router), React, TailwindCSS
+- **Backend:** Next.js API routes, NextAuth.js
+- **Database:** PostgreSQL, managed via Heroku
+- **ORM:** Prisma
+- **Authentication:** NextAuth (Google provider & credentials)
+- **Deployment:** Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Prerequisites
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) (for database provisioning)
+- A Heroku account (for PostgreSQL database)
+- A Vercel account (for deployment)
+- Google OAuth credentials for authentication
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/todo-app.git
+   cd todo-app
