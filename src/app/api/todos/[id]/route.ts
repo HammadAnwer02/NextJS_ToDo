@@ -2,13 +2,13 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
-import { authOptions } from "../../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 
 export async function GET(
   req: Request,
   context: { params: { id: string } }
 ) {
-  // Await the params object before using its properties
+  // Await context.params before using its properties (if required)
   const { id } = await Promise.resolve(context.params);
   
   const session = await getServerSession(authOptions);
