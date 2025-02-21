@@ -4,13 +4,8 @@ import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/lib/authOptions";
 
-export async function GET(
-  req: Request,
-  context: { params: { id: string } }
-) {
-  // Await context.params before using its properties (if required)
-  const { id } = await Promise.resolve(context.params);
-  
+export async function GET(req: Request, { params }: { params: Record<string, string> }) {
+  const { id } = params;  
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -23,11 +18,8 @@ export async function GET(
   return NextResponse.json(todo);
 }
 
-export async function PUT(
-  req: Request,
-  context: { params: { id: string } }
-) {
-  const { id } = await Promise.resolve(context.params);
+export async function PUT(req: Request, { params }: { params: Record<string, string> }) {
+  const { id } = params;
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
