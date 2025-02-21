@@ -13,6 +13,7 @@ export default function EditTodo() {
 
   useEffect(() => {
     // Redirect if unauthenticated
+    console.log(session);
     if (status === "unauthenticated") {
       router.push("/login");
       return;
