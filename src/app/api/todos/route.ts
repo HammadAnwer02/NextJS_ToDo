@@ -9,7 +9,7 @@ export async function GET() {
   if (!session || !session.user || !session.user.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  
+
   const todos = await prisma.todo.findMany({ where: { userId: session.user.id } });
   return NextResponse.json(todos);
 }
